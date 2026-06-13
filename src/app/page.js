@@ -1,42 +1,10 @@
-export default function HomePage() {
-  const friends = [
-    {
-      name: "David Kim",
-      ago: "62d ago",
-      tags: ["WORK"],
-      status: "Almost Due",
-      statusColor: "bg-yellow-400 text-yellow-900",
-      avatar: "DK",
-      avatarBg: "bg-red-400",
-    },
-    {
-      name: "Emma Wilson",
-      ago: "62d ago",
-      tags: ["FAMILY"],
-      status: "Overdue",
-      statusColor: "bg-red-500 text-white",
-      avatar: "EW",
-      avatarBg: "bg-amber-300",
-    },
-    {
-      name: "Lisa Nakamura",
-      ago: "62d ago",
-      tags: ["WORK"],
-      status: "Overdue",
-      statusColor: "bg-red-500 text-white",
-      avatar: "LN",
-      avatarBg: "bg-purple-400",
-    },
-    {
-      name: "James Wright",
-      ago: "62d ago",
-      tags: ["HOBBY", "TRAVEL"],
-      status: "Overdue",
-      statusColor: "bg-red-500 text-white",
-      avatar: "JW",
-      avatarBg: "bg-gray-500",
-    },
-  ];
+import Image from "next/image";
+import Link from "next/link";
+
+export default async function HomePage() {
+
+  const res = await fetch("http://localhost:3000/friends.json");
+  const friends = await res.json();
 
   return (
     <main className="min-h-screen bg-[#f0f2f5] px-6 py-12">
@@ -70,29 +38,41 @@ export default function HomePage() {
           ))}
         </div>
 
+
+
         {/* Friends Grid */}
         <div>
           <h2 className="text-lg font-bold text-gray-900 mb-4">Your Friends</h2>
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
+
+
             {friends.map((f) => (
-              <div key={f.name} className="bg-white rounded-xl p-5 flex flex-col items-center gap-2">
-                <div className={`w-14 h-14 rounded-full ${f.avatarBg} flex items-center justify-center text-white font-bold text-sm`}>
-                  {f.avatar}
+              <Link href={`/fraind-details/${f.id}`} key={f.name} className="bg-white rounded-xl p-5 flex flex-col items-center gap-2">
+                <div className={`w-14 h-14 rounded-full flex items-center justify-center text-white font-bold text-sm`}>
+                  <Image className=" rounded-full"
+                    src={f.picture}
+                    alt={`Picture of the ${f.name}`}
+                    width={500}
+                    height={500}
+                  />
                 </div>
                 <p className="font-semibold text-gray-900 text-sm text-center">{f.name}</p>
-                <p className="text-xs text-gray-400">{f.ago}</p>
+                <p className="text-xs text-gray-400">{f.days_since_contact}d ago</p>
                 <div className="flex flex-wrap gap-1 justify-center">
                   {f.tags.map((t) => (
-                    <span key={t} className="bg-green-100 text-green-700 text-[10px] font-semibold px-2 py-0.5 rounded-full">
+                    <span key={t} className="bg-green-100 text-green-700 first-letter:uppercase text-[10px] font-semibold px-2 py-0.5 rounded-full">
                       {t}
                     </span>
                   ))}
                 </div>
-                <span className={`text-[10px] font-semibold px-2.5 py-0.5 rounded-full ${f.statusColor}`}>
+                <span className={`text-[10px] font-semibold px-2.5 py-0.5 rounded-full ${f.status == "On-Track" && "bg-[#244D3F]"} ${f.status == "Overdue" && "bg-[#EF4444]"} ${f.status == "Almost Due" && "bg-[#EFAD44]"}`}>
                   {f.status}
                 </span>
-              </div>
+              </Link>
             ))}
+
+
+
           </div>
         </div>
       </div>

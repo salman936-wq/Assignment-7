@@ -1,8 +1,16 @@
+import Image from "next/image";
+import FooterLogo from "../assets/logo-xl.png"
+
 export default function Footer() {
   return (
     <footer className="bg-[#1e3a2f] text-white py-16 px-6">
       <div className="max-w-4xl mx-auto text-center">
-        <h2 className="text-5xl font-black mb-4 tracking-tight">KeenKeeper</h2>
+        <Image className="mx-auto mb-5"
+      src={FooterLogo}
+      alt="Picture of the author"
+      width={500}
+      height={500}
+    />
         <p className="text-gray-300 text-sm mb-10">
           Your personal shelf of meaningful connections. Browse, tend, and
           nurture the relationships that matter most.
