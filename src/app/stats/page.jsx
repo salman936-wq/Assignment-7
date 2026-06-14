@@ -1,15 +1,26 @@
 "use client";
+import { Context } from "@/provider/ContextProvider";
+import { useContext } from "react";
 import { PieChart, Pie, Cell, Legend, Tooltip, ResponsiveContainer } from "recharts";
 
-const data = [
-  { name: "Text", value: 40 },
-  { name: "Call", value: 35 },
-  { name: "Video", value: 25 },
-];
+
 
 const COLORS = ["#7c3aed", "#1e3a2f", "#22c55e"];
 
 export default function StatsPage() {
+  const { timeline } = useContext(Context);
+
+  const callLength = timeline.filter(item => item.type === 'Call').length;
+  const textLength = timeline.filter(item => item.type === 'Text').length;
+  const videoLength = timeline.filter(item => item.type === 'Video').length;
+
+  const data = [
+  { name: "Text", value: textLength },
+  { name: "Call", value: callLength },
+  { name: "Video", value: videoLength },
+];
+
+
   return (
     <main className="min-h-screen bg-[#f0f2f5] px-6 py-12">
       <div className="max-w-3xl mx-auto">

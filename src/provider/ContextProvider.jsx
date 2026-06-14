@@ -7,6 +7,7 @@ const ContextProvider = ({ children }) => {
 const [call, setCall] = useState([]);
 const [text, setText] = useState([]);
 const [video, setVideo] = useState([]);
+const [timeline, setTimeline] = useState([]);
 
     const handleCall = (data) => {
         const callArray = {
@@ -24,6 +25,7 @@ const [video, setVideo] = useState([]);
             position: "top-center",
         });
         setCall([...call, callArray])
+        setTimeline([...timeline, callArray])
     };
 
     const handleText = (data) => {
@@ -42,6 +44,7 @@ const [video, setVideo] = useState([]);
             position: "top-center",
         });
         setText([...text, textArray])
+        setTimeline([...timeline, textArray])
     };
 
     const handleVideo = (data) => {
@@ -60,6 +63,7 @@ const [video, setVideo] = useState([]);
             position: "top-center",
         });
         setVideo([...video, videoArray])
+        setTimeline([...timeline, videoArray])
     };
 
   const allCallingData = {
@@ -71,7 +75,8 @@ const [video, setVideo] = useState([]);
     setText,
     handleVideo,
     video, 
-    setVideo
+    setVideo,
+    timeline
   };
 
   return (
