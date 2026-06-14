@@ -8,7 +8,7 @@ KeenKeeper is a friendship tracking web app built with Next.js. It helps users t
 
 ## 🚀 Live Links
 
-* Live Site: https://your-live-link.com
+* Live Site: https://salman-b13-a7.netlify.app/
 * GitHub: https://github.com/salman936-wq/Assignment-7
 
 ---
@@ -49,8 +49,8 @@ KeenKeeper is a friendship tracking web app built with Next.js. It helps users t
 ## ⚙️ Setup
 
 ```bash
-git clone https://github.com/your-username/keenkeeper.git
-cd keenkeeper
+git clone https://github.com/salman936-wq/Assignment-7
+cd assignment-7
 npm install
 npm run dev
 ```

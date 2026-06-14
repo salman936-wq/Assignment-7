@@ -4,7 +4,7 @@ const UserInfoPage = async({ params }) => {
   const {pathId} = await params;
 
   
-  const res = await fetch("http://localhost:3000/friends.json");
+  const res = await fetch("https://salman-b13-a7.netlify.app/friends.json");
 
   const friends = await res.json();
   const friend = friends.find(friend => friend.id == pathId);

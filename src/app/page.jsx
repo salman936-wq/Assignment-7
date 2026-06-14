@@ -2,8 +2,9 @@ import Image from "next/image";
 import Link from "next/link";
 
 export default async function HomePage() {
+  
 
-  const res = await fetch("http://localhost:3000/friends.json");
+  const res = await fetch("https://salman-b13-a7.netlify.app/friends.json");
   const friends = await res.json();
 
   return (
