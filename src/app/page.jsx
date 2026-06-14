@@ -58,13 +58,13 @@ export default async function HomePage() {
                 </div>
                 <p className="font-semibold text-gray-900 text-sm text-center">{f.name}</p>
                 <p className="text-xs text-gray-400">{f.days_since_contact}d ago</p>
-                <div className="flex flex-wrap gap-1 justify-center">
+                <ul className="flex flex-wrap gap-1 justify-center">
                   {f.tags.map((t) => (
-                    <span key={t} className="bg-green-100 text-green-700 first-letter:uppercase text-[10px] font-semibold px-2 py-0.5 rounded-full">
+                    <li key={t} className="bg-green-100 text-green-700 first-letter:uppercase text-[10px] font-semibold px-2 py-0.5 rounded-full">
                       {t}
-                    </span>
+                    </li>
                   ))}
-                </div>
+                </ul>
                 <span className={`text-[10px] font-semibold px-2.5 py-0.5 rounded-full ${f.status == "On-Track" && "bg-[#244D3F]"} ${f.status == "Overdue" && "bg-[#EF4444]"} ${f.status == "Almost Due" && "bg-[#EFAD44]"}`}>
                   {f.status}
                 </span>

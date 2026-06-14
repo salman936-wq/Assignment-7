@@ -1,5 +1,5 @@
 import Image from "next/image";
-import FooterLogo from "../assets/logo-xl.png"
+import FooterLogo from "../../public/logo-xl.png"
 
 export default function Footer() {
   return (

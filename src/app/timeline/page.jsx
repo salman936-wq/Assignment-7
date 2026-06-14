@@ -1,3 +1,7 @@
+'use client'
+import { Context } from "@/provider/ContextProvider";
+import { useContext } from "react";
+
 export default function TimelinePage() {
   const events = [
     {
@@ -31,6 +35,10 @@ export default function TimelinePage() {
       date: "March 15, 2026",
     },
   ];
+
+  const {call} = useContext(Context)
+  console.log(call);
+
 
   return (
     <main className="min-h-screen bg-[#f0f2f5] px-6 py-12">

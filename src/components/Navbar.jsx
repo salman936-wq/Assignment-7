@@ -8,7 +8,7 @@ HomePage
 StatsPage
 import { usePathname } from "next/navigation";
 import Image from 'next/image'
-import Logo from "@/assets/logo.png"
+import Logo from "../../public/logo.png"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faHouse, faClock, faChartLine } from "@fortawesome/free-solid-svg-icons";
 
