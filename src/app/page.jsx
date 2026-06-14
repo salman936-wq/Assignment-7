@@ -1,11 +1,9 @@
 import Image from "next/image";
 import Link from "next/link";
+import friendsData from "../../public/friends.json";
 
-export default async function HomePage() {
-  
-
-  const res = await fetch("https://salman-b13-a7.netlify.app/friends.json");
-  const friends = await res.json();
+export default function HomePage() {
+  const friends = friendsData;
 
   return (
     <main className="min-h-screen bg-[#f0f2f5] px-6 py-12">

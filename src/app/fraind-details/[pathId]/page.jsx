@@ -1,12 +1,10 @@
 import FraindInfoDesign from "../FraindInfoDesign/FraindInfoDesign";
+import friendsData from "../../../../public/friends.json";
 
 const UserInfoPage = async({ params }) => {
   const {pathId} = await params;
 
-  
-  const res = await fetch("https://salman-b13-a7.netlify.app/friends.json");
-
-  const friends = await res.json();
+  const friends = friendsData;
   const friend = friends.find(friend => friend.id == pathId);
 
   
